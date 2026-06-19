@@ -1,10 +1,12 @@
 \documentclass[aspectratio=169]{beamer} % 使用 16:9 宽屏比例
 \usepackage{hyperref}
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 
 % other packages
 \usepackage{latexsym,amsmath,xcolor,multicol,booktabs,calligra}
-\usepackage{graphicx,pstricks,listings,stackengine}
+\usepackage{graphicx,pstricks,listings,stackengine, tikz}
+
+\usetikzlibrary{graphs, graphs.standard}
 
 \author{Davi Campos Ribeiro \& Ruibin Mei}
 \title{Grafos Expansores e o Tempo de Mistura em Passeios Aleatórios}
@@ -31,15 +33,13 @@
     frame=shadowbox,
 }
 
-
 \begin{document}
-
 
 \begin{frame}
     \titlepage
     \begin{figure}[htpb]
         \begin{center}
-            \includegraphics[width=0.3\linewidth]{pic/ufpr.png}
+          \includegraphics[width=0.2\linewidth]{pic/ufpr.png}
         \end{center}
     \end{figure}
 \end{frame}
@@ -48,21 +48,7 @@
     \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
 \end{frame}
 
-
-\section{Introdução}
-
-\begin{frame}{aaaa}
-    \begin{itemize}[<+-| alert@+>] 
-        \item 1
-        \item 2
-        \item 3
-    \end{itemize}
-\end{frame}
-
-
-\section{Motivação}
-
-\subsection{444}
+\input{src/introduction}
 
 
 \section{Tempo de Mistura}
@@ -130,7 +116,7 @@
 
 \begin{frame}
     \begin{center}
-        {\Huge\calligra Thanks!}
+        {\Huge Thanks!}
     \end{center}
 \end{frame}
 

@@ -1,0 +1,60 @@
+\section{Introdução}
+
+\subsection{Adendos}
+
+\begin{frame}{Antes de começarmos....}
+    \begin{itemize}[<+-| alert@+>] 
+      % Bom pq são uteis, varias definições e relações com as artes das trevas
+      \item Aparecem em todo canto
+        \item Não são uma classe de grafo (meio que sim mas
+          não)
+    \end{itemize}
+\end{frame}
+
+
+\subsection{Motivação}
+
+\begin{frame}[c]{Imagine...}
+
+  Imagine a situação cotiadiana em que você precisa de um grafo com N vértices e
+  com poucas arestas, e que ao passear sobre ele da pra chegar em qualquer lugar rapidinho.
+  \vspace{40pt}
+  \onslide<2->{%
+    \begin{center}
+      \textcolor{red}{\Huge O que você faria?}
+    \end{center}
+  }
+\end{frame}
+
+\begin{frame}[fragile]{Hmmm...}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+      \node (Kn) {
+        \begin{tikzpicture}
+          \graph [nodes={circle,draw}, clockwise] {
+            subgraph K_n [n=5];
+          };
+        \end{tikzpicture}
+      };
+      \node[left] at (Kn.west) {$K_n = $};
+      \node[above=10pt] at (Kn.north) {Talvez um grafo completo...};
+
+    \end{tikzpicture}   
+
+    \vspace{20pt}
+    \onslide<2->{%
+      Puts!! Tem arestas $\mathcal{O}(N^2)$.
+    }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Não se preocupe!!!}
+  Temos a solução para suas necessidades:
+  \vspace{20pt}
+  \begin{center}
+    \textcolor{red}{\Huge Os Grafos Expansores}
+  \end{center}
+\end{frame}
+
+
