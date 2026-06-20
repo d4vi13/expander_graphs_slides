@@ -21,28 +21,21 @@
 
 \begin{frame}
   \begin{example}
-  Considere o seguinte grafo $(n \ge 100)$:
-  \begin{center}
-  \begin{tikzpicture}
-      \node (KN) {
-          \begin{tikzpicture}
-            \node[draw, ellipse, minimum width=2cm, minimum height=5cm,
-              label=center:$K_n$] (A) at (0,0) {};
-            \node[draw, ellipse, minimum width=2cm, minimum height=5cm,
-              label=center:$K_n$] (B) at (6,0) {};
-            \draw (A.east) -- (B.west);
-            \node at (3,0.8) {100 edges};
-          \end{tikzpicture}
-        };
+    Considere o seguinte grafo $(n \ge 100)$:
+    \begin{center}
+      \begin{tikzpicture}
+        \node[draw, ellipse, minimum width=2cm, minimum height=5cm, label=center:$K_n$] (A) at (0,0) {};
+        \node[draw, ellipse, minimum width=2cm, minimum height=5cm, label=center:$K_n$] (B) at (6,0) {};
+        \draw (A.east) -- (B.west);
+        \node at (3,0.8) {100 arestas};
 
-        \onslide<2->{%
-          \node[right=10pt] at (KN.east) {$\lim_{n\rightarrow
-          +\infty}{\frac{\lambda(K_n)}{|K_n|}}$ = 0};
+        \visible<2->{%
+          \node[anchor=west] at (8,0) {$\lim_{n\rightarrow +\infty}{\frac{\lambda(K_n)}{|K_n|}} = 0$};
         };
-    \end{tikzpicture}
-  \end{center}
+      \end{tikzpicture}
+    \end{center}
   \end{example}
-  \end{frame}
+\end{frame}
 
 \begin{frame}{Constante de Cheeger ou Razão de Expansão}
   Precisamos de outra forma de medir isso:  
@@ -74,7 +67,7 @@
     O valor que minimiza a expressão é $m=\frac{n}2$, logo teremos que:
 
     \[
-        h(G) = \frac{n}2
+        h(K_n) = \frac{n}2
     \]
 
     \vspace{5pt}

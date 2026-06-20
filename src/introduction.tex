@@ -17,7 +17,7 @@
 \begin{frame}[c]{Imagine...}
 
   Imagine a situação cotiadiana em que você precisa de um grafo com N vértices e
-  com poucas arestas, e que ao passear sobre ele da pra chegar em qualquer lugar rapidinho.
+  com poucas arestas, e que ao passear sobre ele dá pra chegar em qualquer lugar rapidinho.
   \vspace{40pt}
   \onslide<2->{%
     \begin{center}
@@ -28,22 +28,44 @@
 
 \begin{frame}[fragile]{Hmmm...}
 
+  Talvez um grafo completo...
   \begin{center}
     \begin{tikzpicture}[scale=1.5]
-      \node (Kn) {
+      \node (K5) {
         \begin{tikzpicture}
           \graph [nodes={circle,draw}, clockwise] {
             subgraph K_n [n=5];
           };
         \end{tikzpicture}
       };
-      \node[left] at (Kn.west) {$K_5 = $};
-      \node[above=10pt] at (Kn.north) {Talvez um grafo completo...};
+
+    \node[below=10pt] at (K5.south) {$n=5\text{ }m=10$};
+    \visible<2->{%
+      \node[right] (K6) at (K5.east) {
+        \begin{tikzpicture}
+          \graph [nodes={circle,draw}, clockwise] {
+            subgraph K_n [n=6];
+          };
+        \end{tikzpicture}
+      };
+    \node[below=10pt] at (K6.south) {$n=6\text{ }m=15$};
+    };
+
+    \visible<3->{%
+      \node[right] (K7) at (K6.east) {
+        \begin{tikzpicture}
+          \graph [nodes={circle,draw}, clockwise] {
+            subgraph K_n [n=7];
+          };
+        \end{tikzpicture}
+      };
+    \node[below=10pt] at (K7.south) {$n=7\text{ }m=21$};
+    };
 
     \end{tikzpicture}   
 
     \vspace{20pt}
-    \onslide<2->{%
+    \onslide<4->{%
       Puts!! Tem arestas $\mathcal{O}(N^2)$.
     }
   \end{center}
@@ -58,3 +80,9 @@
 \end{frame}
 
 
+\begin{frame}{Mas antes....}
+  \vspace{20pt}
+  \begin{center}
+  Precisamos conversar sobre "chegar rapidinho em qualquer lugar"
+  \end{center}
+\end{frame}
