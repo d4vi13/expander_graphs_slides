@@ -28,18 +28,17 @@
         \node[draw, ellipse, minimum width=2cm, minimum height=5cm, label=center:$K_n$] (B) at (6,0) {};
         \draw (A.east) -- (B.west);
         \node at (3,0.8) {100 arestas};
-
         \visible<2->{%
           \node[anchor=west] at (8,0) {$\lim_{n\rightarrow +\infty}{\frac{\lambda(K_n)}{|K_n|}} = 0$};
-        };
-      \end{tikzpicture}
-    \end{center}
-  \end{example}
+        }
+    \end{tikzpicture}
+  \end{center}
+\end{example}
 \end{frame}
 
 \begin{frame}{Constante de Cheeger ou Razão de Expansão}
   Precisamos de outra forma de medir isso:  
-  \onslide<2->{%
+  \visible<2->{%
     \begin{definition}
       Seja $G = (V, E)$ um grafo. A constante de Cheeger de $G$, denotada por $h(G)$, é definida por
       \[
@@ -75,22 +74,29 @@
   \end{example}
 \end{frame}
 
+\begin{frame}{Grafo c-expansor}
+  \begin{definition}
+    Seja $G$ um grafo $c > 0$ uma constante, G é um grafo $c-expansor$ se $h(G)
+    \ge c$
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Hmmm...}
+  \begin{itemize}[<+-| alert@+>] 
+    \item Todo grafo $G$ é um grafo $h(g)-expansor$ (se $G$ é conexo)
+    \item Poderiamos definir a classe dos grafos que são $c-expansores$  
+    \item Onde entra a esparsidade? 
+  \end{itemize}
+
+  \vspace{10pt}
+  \visible<4->{%
+    \begin{center}
+    \Large Na verdade, o que importa é a familia...
+    \end{center}
+  }
+
+\end{frame}
+
 
 \subsubsection{Expansão e lacuna espectral}
-\subsubsection{}
-
-\begin{frame}
-     \begin{thebibliography}{99}
-        \bibitem{article1}Author
-        \emph{Title}
-        journal
-    \end{thebibliography}
-\end{frame}
-
-\begin{frame}
-    \begin{center}
-        {\Huge Thanks!}
-    \end{center}
-\end{frame}
-
 
