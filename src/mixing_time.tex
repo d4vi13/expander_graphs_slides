@@ -187,7 +187,6 @@
 \end{frame}
 
 
-\subsection{O tempo de mistura e a lacuna espectral}
 
 \begin{frame}{Tempo de Mistura}
     \textbf{Pergunta:}
@@ -224,30 +223,40 @@
     \alert{Mistura rápida = pequeno tempo de mistura.}
 \end{frame}
 
+\subsection{O tempo de mistura e a lacuna espectral}
+
+
 \begin{frame}{Lacuna Espectral}
-    AJUSTAR
-    Seja
-
+  \begin{definition}[Lacuna Espectral]
+    Seja M uma matriz e $\lambda_1\ge\lambda_2\ge\cdots\lambda_n$ os autovalores dela, a lacuna espectral será a diferença entre os dois maiores autovalores:
     \[
-        1=\mu_1>\mu_2\geq\cdots\geq\mu_n
+      \lambda_1 - \lambda_2
     \]
+  \end{definition}
+\end{frame}
 
-    os autovalores da matriz de transição \(P\).
 
-    \bigskip
-
-    Definimos a \textbf{lacuna espectral} por
-
+\begin{frame}{Tempo de Mistura e Lacuna Espectral}
+  \begin{theorem}[Lacuna espectral e tempo de mistura]
+    \label{thm:spectral_mixing}
+    Seja $G$ um grafo $d$-regular conexo, e seja $P$ a matriz de transição do passeio aleatório preguiçosa em $G$. Seja $1=\mu_1>\mu_2\geq \cdots \geq \mu_n$
+    os autovalores de $P$, denotemos a lacuna espectral por:
     \[
-        \gamma = 1-\mu_2.
+      \gamma = 1-\mu_2.
     \]
+    O tempo de mistura satisfaz
+    \[
+      \tau_{\mathrm{mix}}(\varepsilon)
+      =
+      O\!\left(\frac{1}{\gamma}\log n\right).
+    \]
+  \end{theorem}
+\end{frame}
 
-    \bigskip
-
+\begin{frame}{Lacuna Espectral}
     \textbf{Intuição:}
 
     \begin{itemize}
-        \item \(\mu_2\) mede quanto da informação inicial ainda permanece.
         \item \(\mu_2\) próximo de \(1\) $\Rightarrow$ mistura lenta.
         \item \(\mu_2\) pequeno $\Rightarrow$ mistura rápida.
     \end{itemize}
@@ -257,112 +266,63 @@
     \[
         \boxed{\text{Gap grande } \Rightarrow \text{ mistura rápida}}
     \]
-
-\end{frame}
-
-
-\begin{frame}{Tempo de Mistura e Lacuna Espectral}
-    AJUSTAR
-    \textbf{Teorema}
-    \bigskip
-    Para o passeio aleatório preguiçoso,
-
-    \[
-        \tau_{mix}(\varepsilon)
-        =
-        O\!\left(
-            \frac{1}{\gamma}
-            \log n
-        \right).
-    \]
-
-    \bigskip
-
-    Como
-
-    \[
-        \gamma = 1-\mu_2,
-    \]
-
-    temos:
-
-    \bigskip
-
-    \[
-        \gamma \uparrow
-        \quad \Longrightarrow \quad
-        \tau_{mix} \downarrow
-    \]
-
-    \[
-        \gamma \downarrow
-        \quad \Longrightarrow \quad
-        \tau_{mix} \uparrow
-    \]
-
-    \bigskip
-
+    
     \alert{
         Quanto maior a lacuna espectral,
         mais rapidamente o passeio converge para a distribuição estacionária.
     }
 
+
 \end{frame}
-
-
 
 \begin{frame}{Autovalores do Passeio Preguiçoso}
-    AJUSTAR
-    Sabemos que
-
+  \begin{prop}
+\label{prop:p_eigenvalues_form}
+    Seja G um grafo d-regular conexo, A sua matriz de adjacência com autovalores $d=\lambda_1 \ge \lambda_2 \ge\cdots\ge \lambda_n$, e P a matriz de transição do passeio aleatório preguiçosa em G. Os autovalores $\mu_i$ de P são da forma:
     \[
-        P=\frac12 I+\frac1{2d}A.
+    \mu_i = \frac12 +\frac{\lambda_i}{2d}
     \]
 
-    Se
-
-    \[
-        Av_i=\lambda_i v_i,
-    \]
-
-    então
-
-    \[
-        Pv_i
-        =
-        \frac12 v_i
-        +
-        \frac1{2d}Av_i
-        =
-        \frac12 v_i
-        +
-        \frac{\lambda_i}{2d}v_i.
-    \]
-
-    Logo
-
-    \[
-        Pv_i
-        =
-        \left(
-            \frac12+\frac{\lambda_i}{2d}
-        \right)v_i.
-    \]
-
-    \bigskip
-
-    Portanto,
-
-    \[
-        \boxed{
-            \mu_i
-            =
-            \frac12+\frac{\lambda_i}{2d}
-        }
-    \]
-
-    \bigskip
-
-    Os autovalores do passeio são determinados pelos autovalores do grafo.
-
+    Note que os autovalores de P serão ordenados da mesma forma que os autovalores de A
+\end{prop}
 \end{frame}
+
+\begin{frame}{Autovalores do Passeio Preguiçoso}
+  \begin{proof}
+    Note que os autovalores de A são dessa forma pois G é d-regular
+
+    Sabe-se que $P = \frac12I + \frac1{2d}A$. Seja $\lambda_i$ um autovalor de A, então existe um vetor $v_i$ tal que $Av_i= \lambda_iv_i$, então o efeito de P em v:
+    \[
+      Pv = \frac12Iv + \frac1{2d}Av = \frac12v + \frac{\lambda_i}{2d}v = (\frac12 + \frac{\lambda_i}{2d})v 
+    \]
+    Então $\frac12 + \frac{\lambda_i}{2d}$ é autovalor de P, como P e A tem |V| de autovalores, todos são dessa forma.
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}{Lacuna espectral do Passeio Preguiçoso}
+  \begin{corollary}[A lacuna espectral de P]
+\label{cor:p_spectral_gap}
+Seja G um grafo d-regular conexo e P a matriz de transição de um passeio
+aleatório preguiçoso em G. A lacuna espectral de P é:
+\[
+    \frac{d-\lambda_2}{2d}
+\]    
+\end{corollary}
+\end{frame}
+\begin{frame}{Lacuna espectral do Passeio Preguiçoso}
+\begin{proof}
+    Como vimos os autovalores de P tem uma forma especifica e eles são ordenados, basta tomar os dois maiores autovalores:
+    \[
+    \mu_1 = \frac12 + \frac{\lambda_1}{2d} = \frac12 + \frac{d}{2d} = \frac12 + \frac12 = 1
+    \] 
+    \[
+    \mu_2 = \frac12 + \frac{\lambda_2}{2d} 
+    \]
+    Então a lacuna será:
+    \[
+    \mu_1-\mu_2 = 1 - (\frac12 + \frac{\lambda_2}{2d}) =\frac12 - \frac{\lambda_2}{2d}  = \frac{d - \lambda_2}{2d}
+    \]
+\end{proof}
+\end{frame}
+
