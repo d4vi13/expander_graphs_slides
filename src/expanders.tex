@@ -181,4 +181,58 @@ proporcional ao tempo de mistura}
   \end{center}
 \end{frame}
 
-\susbsection{Famílias e o tempo de mistura}
+\subsection{Famílias e o tempo de mistura}
+\begin{frame}
+\begin{theorem}
+Seja $\{G_i=(V_i, E_i)\}_{i\in\mathbb{N}}$ uma família de grafos $c-expansores$
+$d$-regulares. Então um passeio aleatório preguiçoso $P$ em $G_i$ possui tempo de
+mistura $ O(\log |V_i|)$.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}
+    Seja $\gamma_i$ a lacuna espectral de $P$, podemos derivar da inequação
+    anterior:
+    \visible<2->{
+      \[ 
+        d\gamma_i  \leq h(G_i) \leq \sqrt{(2d)^2\gamma_i} \implies 
+      \frac{h(G_i)^2}{4d^2} \leq \gamma_i\]
+    }
+    \visible<3->{%
+      Por definição de família expansora, existe $c>0$ tal que $h(G_i)\geq c$ para todo $i$. Então:
+
+      \[ \frac{c^2}{4d^2} \leq\frac{h(G_i)^2}{4d^2} \leq \gamma_i \implies
+      \frac{4d^2}{c^2}  \ge \frac1\gamma_i\]
+    }
+    \visible<4->{%
+      A cota geral para o tempo de mistura discutida anteriormente nos dá
+      \[
+        \tau_{\mathrm{mix}}(\varepsilon) =  \mathcal{O}\!\left(\frac{1}{\gamma_i}\log |V(G_i)|\right) 
+        \implies \tau_{\mathrm{mix}}(\varepsilon) = O(\log |V(G_i)|)
+      \]
+      Como $1/\gamma_i$ é limitado por uma constante, é absorvido pela notação assintótica.    
+    }
+  \end{proof}
+\end{frame}
+
+\section{Conclusão}
+
+\begin{frame}
+  Vimos:
+  \begin{itemize}[<+-| alert@+>] 
+    \item O que é o tempo de mistura de um passeio 
+    \item O que é uma família de grafos expansores
+    \item Como esses dois conceitos se relacionam por meio dos seus espectros 
+  \end{itemize}
+  \vspace{10pt}
+  \visible<4->{
+    Concluimos então:
+  \begin{center}
+    \large\textcolor{red}{As famílias de grafos expansores são uma ferramenta
+    para adquirir grafos arbitrariamente grandes com poucas arestas e com tempo
+  de mistura pequeno.}
+  \end{center}
+}
+\end{frame}
+
