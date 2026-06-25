@@ -161,6 +161,27 @@
 
 \end{frame}
 
+\begin{frame}{Passeio Aleatório Preguiçoso}
+  Seja $G$ um grafo e $A$ a matriz de adjacência. Em cada passo, o passeio escolhe uniformemente um dos $d$ vizinhos:
+  \[
+    P_{uv} = \Pr[X_{t+1}=v \mid X_t=u] =
+    \begin{cases}
+      \frac{1}{d}, & \{u,v\} \in E, \\[6pt]
+      0, & \text{caso contrário}.
+    \end{cases}
+  \]
+  Portanto:
+  \[
+    P = \frac{1}{d} A
+  \]
+
+  Para passeio aleatório preguiçoso:
+  \[
+    P_{\text{lazy}} = \frac{1}{2}(I + P) = \frac{1}{2}I + \frac{1}{2d} A
+.
+  \]
+\end{frame}
+
 %====================================================================
 \subsection{Distribuição Estacionária e Uniforme}
 \begin{frame}{Distribuição Estacionária e Uniforme}
