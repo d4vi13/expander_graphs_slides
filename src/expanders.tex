@@ -9,7 +9,6 @@
 
 \subsection{Expansão}
 
-
 \begin{frame}{Altamente conectado}
   Precisamos definir a ideia de um grafo altamente conexo:
   \onslide<2->{%
@@ -39,7 +38,7 @@
 \begin{frame}{Constante de Cheeger ou Razão de Expansão}
   Precisamos de outra forma de medir isso:  
   \visible<2->{%
-    \begin{definition}
+    \begin{definition}[Constante de Cheeger]
       Seja $G = (V, E)$ um grafo. A constante de Cheeger de $G$, denotada por $h(G)$, é definida por
       \[
         h(G) = \min_{S\subsetneq V }\frac{|\partial S|}{\min(|S|, |V|\setminus|S|)}
@@ -74,30 +73,112 @@
   \end{example}
 \end{frame}
 
-\begin{frame}{Grafo c-expansor}
-  \begin{definition}
+\begin{frame}{Grafo $c-expansor$}
+  \begin{definition}[Grafo $c-expansor$]
     Seja $G$ um grafo $c > 0$ uma constante, G é um grafo $c-expansor$ se $h(G)
     \ge c$
   \end{definition}
+
+  \vspace {10pt}
+  \visible<2->{
+  Poderiamos aqui definir uma classe de grafos, os grafos que são
+  $c-expansores$, o objeto que é verdeidaramente interessante reside nessas classes
+}
 \end{frame}
 
 \begin{frame}{Hmmm...}
   \begin{itemize}[<+-| alert@+>] 
     \item Todo grafo $G$ é um grafo $h(g)-expansor$ (se $G$ é conexo)
-    \item Poderiamos definir a classe dos grafos que são $c-expansores$  
+    \item Estamos interessados nos grafos com $h(G)$ grande?
+    \item Lembre do $K_n$: $h(G)$ grande mas com muitas arestas
     \item Onde entra a esparsidade? 
   \end{itemize}
 
   \vspace{10pt}
-  \visible<4->{%
+  \visible<5->{%
     \begin{center}
     \Large Na verdade, o que importa é a familia... \\
     \vspace{10pt}
     \includegraphics[width=0.3\linewidth]{pic/vin_diesel.jpeg}
     \end{center}
   }
+\end{frame}
+
+\begin{frame}
+  \begin{definition}[Família de grafos expansores]
+Uma família de grafos finitos $d$-regulares\footnote{Poderia se usar uma definição mais forte que só limita o grau dos vértices} $\{G_i\}_{i\in\mathbb{N}}$ com $\lim_{i\to\infty} |G_i| = \infty$ é uma família de grafos expansores se existe $c >0$ tal que, para todo $i\in\mathbb{N}$, $G_i$ é $c$-expansor.
+\end{definition}
 
 \end{frame}
 
-\subsubsection{Expansão e lacuna espectral}
+\begin{frame}{Agora sim...}
 
+  \begin{itemize}[<+-| alert@+>] 
+    \item Número de arestas é linear no número de vértices 
+    \item Garante um nível de conexidade independente do tamanho do grafo
+  \end{itemize}
+\end{frame}
+
+\subsection{Expansão e a lacuna espectral}
+
+\begin{frame}{Inequação de Cheeger}
+\begin{theorem}[Inequação de Cheeger]
+\label{thm:cheeger}
+Seja $G$ um grafo $d$-regular e $\lambda_1\ge \lambda_2 \ge \dots \ge \lambda_n$ seu espectro. Então
+\[
+\frac{d-\lambda_2}{2}\leq h(G) \leq \sqrt{2d(d-\lambda_2)}.
+\]
+\footnotetext{Lembre que $d-\lambda_2 $ é a lacuna espectral}
+\end{theorem}
+\vspace{10pt}
+\visible<2->{
+  \begin{center}
+  \large A constante de cheeger está intimamente relacionada a lacuna espectral
+  \end{center}
+}
+\end{frame}
+
+\section{Grafos expansores e o tempo de mistura}
+
+\subsection{Expansão e o tempo de mistura}
+
+\begin{frame}
+  Seja $G=(V,E)$ um grafo $d$-regular conexo e $\lambda_1\ge \lambda_2 \ge \dots
+  \ge \lambda_n$ seu espectro, considere um passeio aleatório
+  preguiçoso em G com matriz de transição P, lembre que lacuna espectral de P é a seguinte:
+
+\[
+\gamma = \frac{d-\lambda_2}{2d}
+\]
+
+\visible<2->{
+Então substituindo na inequação de Cheeger:
+\[
+d\gamma  \leq h(G) \leq \sqrt{(2d)^2\gamma} \implies 
+d\gamma  \leq h(G) \leq 2d\sqrt{\gamma}
+\]
+}
+
+\visible<3->{
+Logo a constante de Cheeger está relacionada a lacuna espectral do passeio
+}
+\end{frame}
+
+\begin{frame}{Relemebrando...}
+  \begin{center}
+  A lacuna espectral do passeio determina o tempo de mistura:
+\[
+  \mathcal{O}\!\left(\frac{1}{\gamma}\log n\right).
+\]
+
+Portanto a constante indiretamente irá defninir o tempo de mistura.
+
+\vspace{20pt}
+\visible<2->{
+\large \textcolor{red}{A constante de cheeger é inversamente
+proporcional ao tempo de mistura}
+}
+  \end{center}
+\end{frame}
+
+\susbsection{Famílias e o tempo de mistura}
